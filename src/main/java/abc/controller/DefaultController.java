@@ -43,7 +43,7 @@ public class DefaultController {
 	@RequestMapping("/")
 	public String goIndex(HttpServletRequest request) {
 		request.setAttribute("type_list", bookService.getAllType());
-		return "index";
+		return "index";	//在家更新，直接使用 / 访问即可
 	}
 
 	@RequestMapping("/index")
