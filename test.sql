@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-07-29 11:24:36
+Date: 2017-07-29 11:59:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `t_book` (
   `description` varchar(255) DEFAULT NULL COMMENT '描述',
   `stat` tinyint(1) DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_book
@@ -45,3 +45,4 @@ INSERT INTO `t_book` VALUES ('34', '趣味物理学', '谷羽', '社会认知', 
 INSERT INTO `t_book` VALUES ('38', '简笔画大全', '廉东星', '学前教育', '9.90', '提高想象力和动手能力的使用教学用书，全国200所重点幼儿园名师推荐必备手工书。', '0');
 INSERT INTO `t_book` VALUES ('40', '优衣库', '日本', '衣服', '9.99', '试价格是不是9.99元', '2');
 INSERT INTO `t_book` VALUES ('41', '小米手环', '雷军', '数码产品', '149.00', '测试物品状态 byte', '2');
+INSERT INTO `t_book` VALUES ('42', '锋利的 jQuery', '单东林', '前端开发', '49.00', 'jQuery，顾名思义，也就是 JaveScript 和查询（Query），即是辅助 JavaScript 开发的库。', '1');
