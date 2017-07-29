@@ -46,10 +46,10 @@ public class DefaultController {
 		return "index";	//在家更新，直接使用 / 访问即可
 	}
 
-	@RequestMapping("/index")
+	@RequestMapping("/sysadmin")
 	public String goIndex2(HttpServletRequest request) {
 		request.setAttribute("type_list", bookService.getAllType());
-		return "index";
+		return "index";	//笔记本更新，使用和平台一样的路径访问 /sysadmin
 	}
 
 	@RequestMapping("/add")
