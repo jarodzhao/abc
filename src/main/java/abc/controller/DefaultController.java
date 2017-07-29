@@ -67,7 +67,7 @@ public class DefaultController {
 		String description = request.getParameter("description");
 		
 		double price = Double.parseDouble(price0);
-		byte stat = 1;
+		byte stat = 1;	//新添加的书籍默认是[未发布]状态
 
 		Book book = new Book(name, author, type, price, description, stat);
 		bookService.save(book);
