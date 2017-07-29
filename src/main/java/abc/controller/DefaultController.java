@@ -63,9 +63,10 @@ public class DefaultController {
 		String name = request.getParameter("name");
 		String author = request.getParameter("author");
 		String type = request.getParameter("type");
+		String price0 = request.getParameter("price");
 		String description = request.getParameter("description");
 		
-		double price = 9.99;
+		double price = Double.parseDouble(price0);
 		byte stat = 1;
 
 		Book book = new Book(name, author, type, price, description, stat);
