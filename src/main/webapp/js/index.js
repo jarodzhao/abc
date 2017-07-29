@@ -1,8 +1,5 @@
 //载入页面后执行
 $(function() {
-	$('#sidebar').portamento({
-		disableWorkaround : false
-	});
 	initTable();
 })
 

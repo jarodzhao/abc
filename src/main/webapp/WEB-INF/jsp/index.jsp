@@ -88,10 +88,6 @@ body, input {
 </head>
 <body>
 
-<script src="${basePath }/static/portamento/portamento.js"></script>
-
-	<div id="sidebar">要滑动的元素!!</div>
-	
 	<jsp:include page="toolbar.jsp"></jsp:include>
 
 	<hr style="size: 0px;">
