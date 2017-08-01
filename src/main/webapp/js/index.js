@@ -1,15 +1,41 @@
 //载入页面后执行
 $(function() {
+
+	// sidebar 载入
+	$('#sidebar').portamento({
+		disableWorkaround : false
+	});
+	show();
 	initTable();
 })
 
-// 借出书籍方法
-function jiechu(ids){
-	var index = $("#report0").bootstrapTable("getSelections");
-	if(index.length>0)
-		alert(index[0].name);
-//		parent.dialogManager.alert(index.lenght);
+var flag = false;
+function show() {
+	if (flag) {
+		$("#sidebar").show();
+		flag = false;
+	} else {
+		$("#sidebar").hide();
+		flag = true;
+	}
 }
+
+//归还书籍方法
+function huan() {
+	var index = $("#report0").bootstrapTable("getSelections");
+	if (index.length > 0)
+		alert(index[0].name);
+	// parent.dialogManager.alert(index.lenght);
+}
+
+// 借出书籍方法
+function jiechu() {
+	var index = $("#report0").bootstrapTable("getSelections");
+	if (index.length > 0)
+		alert(index[0].description);
+	// parent.dialogManager.alert(index.lenght);
+}
+
 
 // 按类别获取书籍列表
 function getType(param) {
@@ -115,7 +141,7 @@ function initTable() {
 								{
 									field : 'description',
 									title : '描述',
-									width: 350,
+									width : 350,
 									align : 'left',
 									valign : 'middle',
 									sortable : true
@@ -153,7 +179,8 @@ function initTable() {
 										return editIcon + "　　" + delIcon;
 									},
 									events : {
-										'click .del' : function(e, value, row, index) {
+										'click .del' : function(e, value, row,
+												index) {
 											deleteMethod(row.id);
 										}
 									}

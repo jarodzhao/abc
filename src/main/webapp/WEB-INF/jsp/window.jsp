@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,39 +12,22 @@
 <script src="${basePath }/static/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- bootstrap-table 相关 -->
-<link href="${basePath }/static/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="${basePath }/static/bootstrap-table/bootstrap-table.css"
-	rel="stylesheet">
+<link href="${basePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${basePath }/static/bootstrap-table/bootstrap-table.css" rel="stylesheet">
 
-<script type="text/javascript"
-	src="${basePath }/static/bootstrap-table/bootstrap-table.js"
-	charset="UTF-8"></script>
-<script type="text/javascript"
-	src="${basePath }/static/bootstrap-table/locale/bootstrap-table-zh-CN.js"
-	charset="UTF-8"></script>
-<script type="text/javascript"
-	src="${basePath }/static/bootstrap-table/extensions/export/bootstrap-table-export.js"
-	charset="UTF-8"></script>
-<script type="text/javascript"
-	src="${basePath }/static/bootstrap-table/extensions/export/tableExport.js"
-	charset="UTF-8"></script>
-<script type="text/javascript"
-	src="${basePath }/static/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js"
-	charset="UTF-8"></script>
-<script type="text/javascript"
-	src="${basePath }/static/blockui/jquery.blockUI.min.js"></script>
+<script type="text/javascript" src="${basePath }/static/bootstrap-table/bootstrap-table.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${basePath }/static/bootstrap-table/locale/bootstrap-table-zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${basePath }/static/bootstrap-table/extensions/export/bootstrap-table-export.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${basePath }/static/bootstrap-table/extensions/export/tableExport.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${basePath }/static/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${basePath }/static/blockui/jquery.blockUI.min.js"></script>
 
-<link rel="stylesheet"
-	href="${basePath }/static/jquery/jquery.searchableSelect.css" />
-<script type="text/javascript"
-	src="${basePath }/static/jquery/jquery.searchableSelect.js"></script>
+<link rel="stylesheet" href="${basePath }/static/jquery/jquery.searchableSelect.css" />
+<script type="text/javascript" src="${basePath }/static/jquery/jquery.searchableSelect.js"></script>
 
 <!-- x-editable 相关 -->
-<link rel="stylesheet"
-	href="${basePath}/static/x-editable/bootstrap-editable.css" />
-<script type="text/javascript"
-	src="${basePath}/static/x-editable/bootstrap-editable.js"></script>
+<link rel="stylesheet" href="${basePath}/static/x-editable/bootstrap-editable.css" />
+<script type="text/javascript" src="${basePath}/static/x-editable/bootstrap-editable.js"></script>
 
 
 <style type="text/css">
@@ -96,15 +78,24 @@ body, input {
 </style>
 </head>
 <body>
+	<!-- portamento 相关 -->
+	<script src="${basePath }/static/portamento/portamento.js"></script>
 
 	<script>
 		$(function() {
-			$("#hidden").click(function() {
-				$("#sidebar").hide();
-			});
+
+			var flag = false;
+
 			$("#show").click(function() {
-				$("#sidebar").show();
+				if (flag) {
+					$("#sidebar").show();
+					flag = false;
+				} else {
+					$("#sidebar").hide();
+					flag = true;
+				}
 			});
+
 			$('#sidebar').portamento({
 				disableWorkaround : false
 			});
@@ -112,18 +103,13 @@ body, input {
 	</script>
 
 	<div id="sidebar">
-		<span class="glyphicon glyphicon-paperclip"
-			style="color: rgb(0, 0, 0);"></span> 以下书籍已选中：
+		<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span> 以下书籍已选中：
 	</div>
 
 	<jsp:include page="toolbar.jsp"></jsp:include>
 
-	<!-- jquery 相关 -->
-	<script src="${basePath }/static/jquery/jquery.js"></script>
-	<script src="${basePath }/static/portamento/portamento.js"></script>
 
 	<button id="show">show</button>
-	<button id="hidden">hidden</button>
 
 
 

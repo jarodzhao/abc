@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.util.List"  %>
+<%@ page import="java.util.List"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	
+
 	//获取后台传递的类别列表
 	@SuppressWarnings("unchecked")
 	List<String> type_list = (List<String>) request.getAttribute("type_list");
@@ -45,10 +45,12 @@
 .nav, a {
 	color: #00f;
 }
+
 body, input {
 	font-size: 12px;
 	margin: 0;
 }
+
 #wrapper {
 	overflow: hidden;
 }
@@ -68,7 +70,7 @@ body, input {
 	background: #fff;
 	padding: 10px;
 	float: right;
-	height: 400px;
+	height: 200px;
 }
 
 #portamento_container {
@@ -88,24 +90,32 @@ body, input {
 </head>
 <body>
 
+	<!-- portamento 相关 -->
+	<script src="${basePath }/static/portamento/portamento.js"></script>
+	<div id="sidebar">
+		<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span> 以下书籍已选中：
+	</div>
+
 	<jsp:include page="toolbar.jsp"></jsp:include>
 
 	<hr style="size: 0px;">
+	
+	<div class="container">
+	
+		<div class="row">
 
-	<div class="row">
+			<div class="col-xs-12">
 
-		<div class="col-xs-12">
+				<!--列表-->
 
-			<!--列表-->
+				<div class="widget-box">
 
-			<div class="widget-box">
+					<div class="widget-header clearfix" id="toolbar">
 
-				<div class="widget-header clearfix" id="toolbar">
+						<div class="widget-header-btn form-inline pull-left">
 
-					<div class="widget-header-btn form-inline pull-left">
-
-						<div class="pull-left">
-							<!--span class="dropdown">
+							<div class="pull-left">
+								<!--span class="dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="true">
 									<span class="glyphicon glyphicon-stats"></span> 书籍类别 <span class="caret"></span>
@@ -118,115 +128,35 @@ body, input {
 									<li><a href="#" onclick="getType()">所有类别</a></li>
 								</ul>
 							</span-->
-							<button class="btn btn-sm btn-default" type="button" data-toggle="modal"
-									 data-target="#myModal-plus">
-								<i class="glyphicon glyphicon-import"></i> 归还
-							</button>
-							<button class="btn btn-sm btn-default" type="button" onclick="jiechu()">
-								<i class="glyphicon glyphicon-export"></i> 借出
-							</button>
-							<!-- button class="btn btn-sm btn-default red" type="button" onclick="deleteMethod()">
-								<i class="glyphicon glyphicon-trash"></i> 删除
-							</button>
-							<button id="set" class="btn btn-sm btn-default" type="button" onclick="quitMethod()">
+								<button class="btn btn-sm btn-default" type="button" onclick="huan()">
+									<i class="glyphicon glyphicon-import"></i> 归还
+								</button>
+								<button class="btn btn-sm btn-default" type="button" onclick="jiechu()">
+									<i class="glyphicon glyphicon-export"></i> 借出
+								</button>
+								<button class="btn btn-sm btn-default red" type="button" onclick="show()">
+									<i class="glyphicon glyphicon-ok-sign"></i> 显示
+								</button>
+								<!-- button id="set" class="btn btn-sm btn-default" type="button" onclick="quitMethod()">
 								<i class="glyphicon glyphicon-stats"></i> 设置分类
 							</button -->
+							</div>
+						</div>
+					</div>
+
+
+					<div class="widget-body">
+						<div class="widget-main">
+							<div class="table-responsive">
+								<table id="report0" class="table table-striped table-hover"></table>
+							</div>
 						</div>
 					</div>
 				</div>
+				<!--列表-->
 
-
-				<div class="widget-body">
-					<div class="widget-main">
-						<div class="table-responsive">
-							<table id="report0" class="table table-striped table-hover"></table>
-						</div>
-					</div>
-				</div>
 			</div>
-			<!--列表-->
-
 		</div>
 	</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>0000000000000000000000000
 </body>
 </html>
