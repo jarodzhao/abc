@@ -1,4 +1,4 @@
-//载入页面后执行
+//页面初始化
 $(function() {
 
 	// sidebar 载入
@@ -9,30 +9,45 @@ $(function() {
 	initTable();
 })
 
+//借出面板显示标识
 var flag = false;
-function show() {
-	if (flag) {
-		$("#sidebar").show();
-		flag = false;
-	} else {
-		$("#sidebar").hide();
-		flag = true;
-	}
-}
+
+//已选中的图书列表
+var bookList = [];
+
+
+//angularJs 前缀
+var ngAttrPrefixes = ['ng-','data-ng-','ng:','x-ng-'];
+
+//ng 定义
+var app = angular.module("borrow", []);
+
+//controller 定义
+app.controller('add', function($scope){
+	$scope.list = bookList;
+});
+
+
+
+
 
 //归还书籍方法
 function huan() {
 	var index = $("#report0").bootstrapTable("getSelections");
 	if (index.length > 0)
-		alert(index[0].name);
-	// parent.dialogManager.alert(index.lenght);
+		alert(index[0].description);
 }
 
 // 借出书籍方法
-function jiechu() {
+function jie() {
 	var index = $("#report0").bootstrapTable("getSelections");
 	if (index.length > 0)
-		alert(index[0].description);
+	{
+		for(var i=0;i<index.length;i++){
+			bookList.push(index[i].name);
+		}
+	}
+	console.info(bookList);
 	// parent.dialogManager.alert(index.lenght);
 }
 
@@ -51,15 +66,21 @@ function getType(param) {
 		});
 	}
 }
+
+
 // 无参数刷新表格(相当于刷新页面)
 function refreshTable() {
 	$("#report0").bootstrapTable("refresh");
 }
+
+
 function deleteIds(ids) {
 	var row = $.map($("#report0").bootstrapTable("getSelections"), function() {
 		console.info(row);
 	});
 }
+
+
 // 删除操作
 function deleteMethod(id) {
 	if (id) {
@@ -74,6 +95,8 @@ function deleteMethod(id) {
 		})
 	}
 }
+
+
 // 初始化表格
 function initTable() {
 	$('#report0')
@@ -186,4 +209,17 @@ function initTable() {
 									}
 								} ]
 					})
+}
+
+
+
+//显示借出面板方法
+function show() {
+	if (flag) {
+		$("#sidebar").show();
+		flag = false;
+	} else {
+		$("#sidebar").hide();
+		flag = true;
+	}
 }

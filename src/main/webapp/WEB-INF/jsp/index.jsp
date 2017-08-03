@@ -39,62 +39,34 @@
 <link rel="stylesheet" href="${basePath}/static/x-editable/bootstrap-editable.css" />
 <script type="text/javascript" src="${basePath}/static/x-editable/bootstrap-editable.js"></script>
 
+<!-- AngularJS 相关 -->
+<script src="${basePath}/static/angularJs/angular.min.js"></script>
+
+<!-- 页面自身 JS -->
 <script type="text/javascript" src="${basePath }/js/index.js"></script>
 
-<style type="text/css">
-.nav, a {
-	color: #00f;
-}
-
-body, input {
-	font-size: 12px;
-	margin: 0;
-}
-
-#wrapper {
-	overflow: hidden;
-}
-
-#content {
-	width: 486px;
-	margin-right: 10px;
-	float: left;
-	min-height: 1200px;
-}
-
-#sidebar {
-	font-size: 12px;
-	color: #666;
-	border: solid 1px #ddd;
-	width: 280px;
-	background: #fff;
-	padding: 10px;
-	float: right;
-	height: 200px;
-}
-
-#portamento_container {
-	float: right;
-	position: relative;
-}
-
-#portamento_container #sidebar {
-	float: none;
-	position: absolute;
-}
-
-#portamento_container #sidebar.fixed {
-	position: fixed;
-}
-</style>
+<link rel="stylesheet" href="${basePath }/css/style.css" />
 </head>
 <body>
 
 	<!-- portamento 相关 -->
 	<script src="${basePath }/static/portamento/portamento.js"></script>
-	<div id="sidebar">
-		<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span> 以下书籍已选中：
+	
+	
+	
+	<div id="sidebar" data-ng-app="borrow" data-ng-controller="add">
+	
+		<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span>
+		
+		以下书籍已选中：
+		
+		<ul>
+			<li data-ng-repeat="x in list">{{x}}</li>
+		</ul>
+		
 	</div>
+	
+	
 
 	<jsp:include page="toolbar.jsp"></jsp:include>
 
@@ -131,7 +103,7 @@ body, input {
 								<button class="btn btn-sm btn-default" type="button" onclick="huan()">
 									<i class="glyphicon glyphicon-import"></i> 归还
 								</button>
-								<button class="btn btn-sm btn-default" type="button" onclick="jiechu()">
+								<button class="btn btn-sm btn-default" type="button" onclick="jie()">
 									<i class="glyphicon glyphicon-export"></i> 借出
 								</button>
 								<button class="btn btn-sm btn-default red" type="button" onclick="show()">
