@@ -47,21 +47,21 @@
 
 <link rel="stylesheet" href="${basePath }/css/style.css" />
 </head>
-<body>
+<body data-ng-app="borrow" data-ng-controller="add">
 
 	<!-- portamento 相关 -->
 	<script src="${basePath }/static/portamento/portamento.js"></script>
 	
 	
 	
-	<div id="sidebar" data-ng-app="borrow" data-ng-controller="add">
+	<div id="sidebar">
 	
 		<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span>
 		
 		以下书籍已选中：
 		
 		<ul>
-			<li data-ng-repeat="x in list">{{x}}</li>
+			<li data-ng-repeat="i in list">{{i}}</li>
 		</ul>
 		
 	</div>
@@ -100,10 +100,10 @@
 									<li><a href="#" onclick="getType()">所有类别</a></li>
 								</ul>
 							</span-->
-								<button class="btn btn-sm btn-default" type="button" onclick="huan()">
+								<button class="btn btn-sm btn-default" type="button" data-ng-click="huan()">
 									<i class="glyphicon glyphicon-import"></i> 归还
 								</button>
-								<button class="btn btn-sm btn-default" type="button" onclick="jie()">
+								<button class="btn btn-sm btn-default" type="button" data-ng-click="jie()">
 									<i class="glyphicon glyphicon-export"></i> 借出
 								</button>
 								<button class="btn btn-sm btn-default red" type="button" onclick="show()">

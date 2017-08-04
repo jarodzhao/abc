@@ -9,48 +9,45 @@ $(function() {
 	initTable();
 })
 
-//借出面板显示标识
-var flag = false;
+// 借出面板显示标识
+var flag = true;
 
-//已选中的图书列表
-var bookList = [];
+// angularJs 前缀
+var ngAttrPrefixes = [ 'ng-', 'data-ng-', 'ng:', 'x-ng-' ];
 
-
-//angularJs 前缀
-var ngAttrPrefixes = ['ng-','data-ng-','ng:','x-ng-'];
-
-//ng 定义
+// ngApp 定义
 var app = angular.module("borrow", []);
 
-//controller 定义
-app.controller('add', function($scope){
-	$scope.list = bookList;
-});
+// controller 定义
+app.controller('add', function($scope) {
 
-
-
-
-
-//归还书籍方法
-function huan() {
-	var index = $("#report0").bootstrapTable("getSelections");
-	if (index.length > 0)
-		alert(index[0].description);
-}
-
-// 借出书籍方法
-function jie() {
-	var index = $("#report0").bootstrapTable("getSelections");
-	if (index.length > 0)
-	{
-		for(var i=0;i<index.length;i++){
-			bookList.push(index[i].name);
-		}
+	// 归还书籍方法
+	$scope.huan = function() {
+		var index = $("#report0").bootstrapTable("getSelections");
+		if (index.length > 0)
+			alert(index[0].description);
 	}
-	console.info(bookList);
-	// parent.dialogManager.alert(index.lenght);
-}
 
+	// 借出书籍方法
+	$scope.jie = function() {
+
+		// 已选中的图书列表
+		var bookList = [];
+
+		var index = $("#report0").bootstrapTable("getSelections");
+
+		if (index.length > 0) {
+
+			for (var i = 0; i < index.length; i++) {
+				
+				if (bookList.indexOf(index[i].name) < 0)
+					bookList.push(index[i].name);
+			}
+		}
+
+		$scope.list = bookList;
+	}
+});
 
 // 按类别获取书籍列表
 function getType(param) {
@@ -67,19 +64,16 @@ function getType(param) {
 	}
 }
 
-
 // 无参数刷新表格(相当于刷新页面)
 function refreshTable() {
 	$("#report0").bootstrapTable("refresh");
 }
-
 
 function deleteIds(ids) {
 	var row = $.map($("#report0").bootstrapTable("getSelections"), function() {
 		console.info(row);
 	});
 }
-
 
 // 删除操作
 function deleteMethod(id) {
@@ -95,7 +89,6 @@ function deleteMethod(id) {
 		})
 	}
 }
-
 
 // 初始化表格
 function initTable() {
@@ -119,6 +112,9 @@ function initTable() {
 						minimumCountColumns : 1,
 						toolbar : '#toolbar',
 						clickToSelect : true,
+						onClickRow: function(row, tr){
+							alert(row.name);
+						},
 						sidePagination : 'server',
 						queryParamsType : 'limit',
 						queryParams : function(params) {
@@ -211,9 +207,7 @@ function initTable() {
 					})
 }
 
-
-
-//显示借出面板方法
+// 显示借出面板方法
 function show() {
 	if (flag) {
 		$("#sidebar").show();
