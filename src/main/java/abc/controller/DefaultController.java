@@ -12,6 +12,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.SessionFactory;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +58,40 @@ public class DefaultController {
 	public String goAdd(HttpServletRequest request) {
 		return "add";
 	}
+	
+	/**
+	 * 新的世界
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/new")
+	public String theNew(HttpServletRequest request) {
+		return "newIndex";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getJsonParams", method = { RequestMethod.POST })
+	public String getParams(HttpServletRequest request) {
+		
+		String params = request.getParameter("unState");
+		JSONArray jsonArray = new JSONArray(params);
+		
+		System.out.println(params);
+		System.out.println(jsonArray);
+		System.out.println(jsonArray.length());
+		
+		JSONObject jsonObj = jsonArray.getJSONObject(0);
+		System.out.println();
+		
+		System.out.println(jsonObj.get("applyUserId"));
+		System.out.println(jsonObj.get("state"));
+		return "is happend!";
+	}
+	
+	
+	//***************************************************************************************
+	//***************************************************************************************
+	
 
 	@RequestMapping("/save")
 	public String save(HttpServletRequest request) {

@@ -5,7 +5,11 @@
 </head>
 <body>
 	<div>
-		&nbsp; <a href="/">首页</a>&nbsp; | &nbsp; <a href="/add">添加</a> &nbsp; | &nbsp; <a href="/set">设置</a> &nbsp; | &nbsp; <a href="/test">测试</a>
+		&nbsp; <a href="/">首页</a>&nbsp; | &nbsp; 
+		<a href="/add">添加</a> &nbsp; | &nbsp; 
+		<a href="/set">设置</a> &nbsp; | &nbsp; 
+		<a href="/test">测试</a> &nbsp; | &nbsp;
+		<a href="/new">新的世界</a>
 	</div>
 </body>
 </html>

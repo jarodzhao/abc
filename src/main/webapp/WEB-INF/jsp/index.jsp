@@ -43,7 +43,7 @@
 <script src="${basePath}/static/angularJs/angular.min.js"></script>
 
 <!-- 页面自身 JS -->
-<script type="text/javascript" src="${basePath }/js/index.js"></script>
+<script type="text/javascript" src="${basePath}/js/index.js"></script>
 
 <link rel="stylesheet" href="${basePath }/css/style.css" />
 </head>
