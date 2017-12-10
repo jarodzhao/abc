@@ -15,8 +15,6 @@
 <body>
 	<jsp:include page="toolbar.jsp"></jsp:include>
 
-
-
 	新的世界，新的开始！
 	<br>
 
