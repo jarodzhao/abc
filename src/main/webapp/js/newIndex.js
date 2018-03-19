@@ -7,7 +7,7 @@ $(function() {
 				$.ajax({
 					type: 'POST',
 					data: { unState: state },
-					url: 'http://localhost:8080/getJsonParams',
+					url: 'http://localhost:8888/getJsonParams',
 					success: function(result){
 						console.info(result);
 					},
@@ -22,6 +22,7 @@ $(function() {
 getApplyUserIdAndUnSignState = function() {
 	var $sign_state = $('#theForm>#sign_state');
 	var unSignState = [];
+	
 	$sign_state.each(function(i, n) {
 		unSignState.push({
 			applyUserId : $(this).attr('applyUserId'),
@@ -31,3 +32,7 @@ getApplyUserIdAndUnSignState = function() {
 //	return unSignState;
 	return JSON.stringify(unSignState, null, 4);
 }
+
+
+
+
