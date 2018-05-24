@@ -102,7 +102,7 @@ public class BookDaoImpl implements BookDao {
 
 	@Override
 	public List<String> getAllType() {
-		return getCurrentSession().createQuery("SELECT DISTINCT type FROM Book").list();
+		return getCurrentSession().createQuery("SELECT DISTINCT type FROM BOOK").list();
 	}
 
 	@Override

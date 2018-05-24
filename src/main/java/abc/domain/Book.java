@@ -8,24 +8,24 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "t_book")
+@Table(name = "T_BOOK")
 public class Book {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Integer BookId;
 
-	private String name;
+	private String BookName;
 	
-	private String author;
+	private String BookAuthor;
 	
-	private String type;
+	private String BookType;
 	
-	private Double price;
+	private Double BookPrice;
 
-	private String description;
+	private String Description;
 	
-	private Byte stat;
+	private Byte Stat;
 	
 	@Transient
 	private String statName;
@@ -34,7 +34,7 @@ public class Book {
 		
 		//0 未发布,1在库,2借出,3超期
 		
-		switch(stat){
+		switch(Stat){
 		case 0:
 			return "未发布";
 		case 1:
@@ -52,64 +52,64 @@ public class Book {
 	}
 
 	public Book(String name, String author, String type, double price, String desc, byte stat) {
-		this.name = name;
-		this.author = author;
-		this.type = type;
-		this.price = price;
-		this.description = desc;
-		this.stat = stat;
+		this.BookName = name;
+		this.BookAuthor = author;
+		this.BookType = type;
+		this.BookPrice = price;
+		this.Description = desc;
+		this.Stat = stat;
 	}
 
 	public Byte getStat() {
-		return stat;
+		return Stat;
 	}
 
 	public void setStat(Byte stat) {
-		this.stat = stat;
+		this.Stat = stat;
 	}
 
 	public Double getPrice() {
-		return price;
+		return BookPrice;
 	}
 
 	public void setPrice(Double price) {
-		this.price = price;
+		this.BookPrice = price;
 	}
 	
 	public String getAuthor() {
-		return author;
+		return BookAuthor;
 	}
 	
 	public void setAuthor(String author) {
-		this.author = author;
+		this.BookAuthor = author;
 	}
 
 	public String getType() {
-		return type;
+		return BookType;
 	}
 
 	public void setType(String type) {
-		this.type = type;
+		this.BookType = type;
 	}
 
 	public Integer getId() {
-		return id;
+		return BookId;
 	}
 
 	public String getName() {
-		return name;
+		return BookName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.BookName = name;
 	}
 
 	public String getDescription() {
-		return description;
+		return Description;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.Description = description;
 	}
 
 }
