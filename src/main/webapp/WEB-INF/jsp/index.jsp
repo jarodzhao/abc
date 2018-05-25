@@ -54,17 +54,13 @@
 	
 	
 	
-	<div id="sidebar">
-	
-		<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span>
-		
-		以下书籍已选中：
-		
-		<ul>
-			<li data-ng-repeat="i in list">{{i}}</li>
-		</ul>
-		
-	</div>
+	<%--<div id="sidebar">--%>
+		<%--<span class="glyphicon glyphicon-paperclip" style="color: rgb(0, 0, 0);"></span>--%>
+		<%--以下书籍已选中：--%>
+		<%--<ul>--%>
+			<%--<li data-ng-repeat="i in list">{{i}}</li>--%>
+		<%--</ul>--%>
+	<%--</div>--%>
 	
 	
 
@@ -106,9 +102,9 @@
 								<button class="btn btn-sm btn-default" type="button" data-ng-click="jie()">
 									<i class="glyphicon glyphicon-export"></i> 借出
 								</button>
-								<button class="btn btn-sm btn-default red" type="button" onclick="show()">
-									<i class="glyphicon glyphicon-ok-sign"></i> 显示
-								</button>
+								<%--<button class="btn btn-sm btn-default red" type="button" onclick="show()">--%>
+									<%--<i class="glyphicon glyphicon-ok-sign"></i> 显示--%>
+								<%--</button>--%>
 								<!-- button id="set" class="btn btn-sm btn-default" type="button" onclick="quitMethod()">
 								<i class="glyphicon glyphicon-stats"></i> 设置分类
 							</button -->
